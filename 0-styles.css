@@ -1,0 +1,142 @@
+/* Variables
+============================= */
+@font-face {
+	font-family: 'Source Sans Pro Regular';
+	src: url("fonts/SourceSansPro-Regular.otf") format("opentype");
+	font-weight: var(--font-weight-regular);
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Source Sans Pro Bold';
+	src: url("fonts/SourceSansPro-Bold.otf") format("opentype");
+	font-weight: var(--font-weight-bold);
+	font-style: normal;
+}
+
+:root {
+	--font-family-regular: 'Source Sans Pro Regular', sans-serif;
+	--font-family-bold: 'Source Sans Pro Bold', sans-serif;
+	--font-weight-regular: 400;
+	--font-weight-bold: 700;
+	--font-color: #FFFFFF;
+}
+
+/* Header
+============ */
+
+.header {
+	position: absolute;
+	z-index: 3;
+	width: 100%;
+	display: flex;
+}
+
+.header-content {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2rem 20rem;
+}
+
+/* Navbar
+============ */
+
+.nav {
+	display: flex;
+	text-align: end;
+}
+
+.nav-items .nav-link {
+	font-family: var(--font-family-bold);
+	font-weight: var(--font-weight-bold);
+	font-size: 14px;
+	color: var(--font-color);
+}
+
+.nav .nav-items + .nav-items {
+	margin: 0 0 0 2rem;
+}
+
+.nav-items {
+	list-style: none;
+}
+
+.nav-items a {
+	color: white;
+	text-decoration: none;
+}
+
+.nav-items:hover a,
+.nav-items:active a {
+	color: #FF6565;
+	text-decoration: none;
+}
+
+
+/* Section homepage
+============ */
+
+.section.home-page {
+	height: 100vh;
+	background-image: url("images/headphones_hero_1.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: 1;
+}
+
+.section.home-page .section-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.section-body .homepage-button {
+	background-color: #FF6565;
+	border-radius: 25px;
+	color: #FFFFFF;
+	padding: 1rem 2rem;
+	border: none;
+	font-family: var(--font-family-bold);
+	font-weight: var(--font-weight-bold);
+	font-size: 14px;
+	margin: 2rem;
+}
+
+.section-body .section-title {
+	font-family: var(--font-family-bold);
+	font-weight: var(--font-weight-bold);
+	font-size: 32px;
+	text-align: center;
+	color: #FFFFFF;
+	padding-top: 10rem;
+	margin: 0;
+}
+
+.section-body .section-tagline {
+	font-family: var(--font-family-bold);
+	font-weight: var(--font-weight-bold);
+	font-size: 16px;
+	text-align: center;
+	color: #FFFFFF;
+	margin-top: 0;
+}
+
+.section-body .section-describe {
+	font-family: var(--font-family-regular);
+	font-weight: var(--font-weight-regular);
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 16px;
+	width: 35%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
