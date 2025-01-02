@@ -22,6 +22,12 @@
 	--font-color: #FFFFFF;
 }
 
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 /* Header
 ============ */
 
@@ -35,9 +41,9 @@
 .header-content {
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
-	padding: 2rem 20rem;
+	padding: 2rem;
 }
 
 /* Navbar
@@ -48,6 +54,14 @@
 	text-align: end;
 }
 
+.navbar-container {
+    position: flex;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    display: flex;
+}
+
 .nav-items .nav-link {
 	font-family: var(--font-family-bold);
 	font-weight: var(--font-weight-bold);
@@ -55,7 +69,7 @@
 	color: var(--font-color);
 }
 
-.nav .nav-items + .nav-items {
+.nav .nav-items {
 	margin: 0 0 0 2rem;
 }
 
@@ -74,21 +88,108 @@
 	text-decoration: none;
 }
 
-
-/* Section homepage
+/* Menu icon
 ============ */
 
-.section.home-page {
+.menu-btn {
+	display: none;
+}
+
+.menu-icon {
+	display: none;
+	cursor: pointer;
+}
+
+.navicon {
+	display: block;
+	width: 30px;
+	height: 4px;
+	border-radius: 5px;
+	position: relative;
+}
+
+.navicon:before,
+.navicon:after {
+	content: "";
+	position: absolute;
+	width: 30px;
+	height: 4px;
+	background-color: #FFF;
+	border-radius: 5px;
+	transition: all 0.3s ease-in-out;
+}
+
+.navicon:before {
+	top: -8px;
+}
+
+.navicon:after {
+	top: 8px;
+}
+
+.menu-btn:checked + .menu-icon .navicon {
+    background-color: transparent;
+}
+
+.menu-btn:checked + .menu-icon .navicon:before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-btn:checked + .menu-icon .navicon:after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+
+@media (max-width: 480px) {
+    .menu-icon {
+        display: block;
+		cursor: pointer;
+    }
+    .header-logo {
+        flex: 1;
+        text-align: center;
+    }
+    .nav {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+		position: absolute;
+		top: 100%;
+		left: -10%;
+		gap: 2rem;
+    }
+    .nav-items {
+        margin: 1rem 0;
+        width: 100%;
+    }
+    .navbar-container {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .menu-btn:checked ~ .navbar-container {
+        display: block;
+    }
+}
+
+
+/* Section heropage
+============ */
+
+.section.hero-page {
 	height: 100vh;
 	background-image: url("images/headphones_hero_1.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	position: relative;
-	z-index: 1;
+	background-attachment: scroll;
 }
 
-.section.home-page .section-body {
+.section.hero-page .section-body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -96,7 +197,7 @@
 	height: 100%;
 }
 
-.section-body .homepage-button {
+.section-body .heropage-button {
 	background-color: #FF6565;
 	border-radius: 25px;
 	color: #FFFFFF;
@@ -106,6 +207,10 @@
 	font-weight: var(--font-weight-bold);
 	font-size: 14px;
 	margin: 2rem;
+}
+
+.section-body .heropage-button:hover {
+	opacity: 0.9;
 }
 
 .section-body .section-title {
@@ -134,6 +239,12 @@
 	color: #FFFFFF;
 	font-size: 16px;
 	width: 35%;
+}
+
+@media (max-width:480px) {
+	.section-body .section-describe {
+		width: 85%;
+	}
 }
 
 body {
